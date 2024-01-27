@@ -6,10 +6,10 @@ import Game from './screens/Game';
 import Final from './screens/Final';
 
 /* 
- * Function: StartScreen
- * Purpose: render the start screen
+ * Function: App
+ * Purpose: render the app
  * Parameters: none
- * Return: the start screen
+ * Return: the app
  */
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState("start");

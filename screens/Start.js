@@ -5,11 +5,14 @@ import StartCheckBox from '../components/StartCheckBox';
 import StartSubmit from '../components/StartSubmit';
 import colors from '../components/Colors';
 
-/* 
- * Function: StartScreen
- * Purpose: render the start screen
- * Parameters: none
- * Return: the start screen
+/**
+ * Render the start screen component.
+ *
+ * @param {object} props - The component's props.
+ * @param {function} props.handleStartGame - Callback function to start the game.
+ * @param {string} [props.initialUserName=""] - Initial user name (optional).
+ * @param {string} [props.initialGuessNumber=""] - Initial guess number (optional).
+ * @returns {JSX.Element} - The start screen component.
  */
 export default function Start({ handleStartGame, initialUserName, initialGuessNumber }) {
   const [isCheckBoxChecked, setIsCheckBoxChecked] = useState(false);
@@ -18,25 +21,36 @@ export default function Start({ handleStartGame, initialUserName, initialGuessNu
   const [errorName, setErrorName] = useState("");
   const [errorNumber, setErrorNumber] = useState("");
 
+  /**
+   * Handle the change of the checkbox state.
+   */
   const handleCheckBoxChange = () => {
     console.log("handleCheckBoxChange called")
     setIsCheckBoxChecked(!isCheckBoxChecked);
     console.log(isCheckBoxChecked)
   }
 
+  /**
+   * Update the user name state based on input value.
+   *
+   * @param {string} name - The user name input value.
+   */
   const getUserName = (name) => {
     setUserName(name);
   }
 
+  /**
+   * Update the guess number state based on input value.
+   *
+   * @param {string} number - The guess number input value.
+   */
   const getGuessNumber = (number) => {
     setGuessNumber(number);
   }
 
-  /* 
-   * Function: handleConfirmButtonPress
-   * Purpose: handle the 'Confirm' button press
-   * Parameters: none
-   * Return: none
+  /**
+   * Handle the 'Confirm' button press.
+   * Validates user input and starts the game if input is valid.
    */
   const handleConfirmButtonPress = () => {
     let isValid = true;
@@ -62,6 +76,9 @@ export default function Start({ handleStartGame, initialUserName, initialGuessNu
     }
   }
 
+  /**
+   * Handle the 'Reset' button press to clear user input and errors.
+   */
   const handleResetButtonPress = () => {
     setUserName("");
     setGuessNumber("");
@@ -69,6 +86,7 @@ export default function Start({ handleStartGame, initialUserName, initialGuessNu
     setErrorNumber("");
   }
 
+  // Render the start screen component
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Guess My Number</Text>
