@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
         paddingTop: 60,
         width: '100%',
         alignItems: 'center',
-        backgroundColor: 'rgba(0, 0, 0, 0)',
+        backgroundColor: colors.transparent,
     },
     card: {
         width: '80%',

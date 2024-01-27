@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React, { useState } from 'react';
-import StartInput from '../components/StartInput';
-import StartCheckBox from '../components/StartCheckBox';
+import StartInput from '../components/Input';
+import StartCheckBox from '../components/CheckBox';
 import StartSubmit from '../components/StartSubmit';
 import colors from '../components/Colors';
 

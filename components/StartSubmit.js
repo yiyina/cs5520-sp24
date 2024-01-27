@@ -3,23 +3,28 @@ import React from 'react'
 import Button from './Button'
 import colors from './Colors';
 
-/*
- * Function: StartSubmit
- * Purpose: render the submit buttons
- * Parameters: isCheckBoxChecked, resetButtonPress, confirmButtonPress
- * Return: submit buttons
+/**
+ * Render the StartSubmit component.
+ * 
+ * @param {object} props - The component's props.
+ * @param {boolean} props.isCheckBoxChecked - The checkbox state.
+ * @param {function} props.resetButtonPress - Callback function to handle the 'Reset' button press.
+ * @param {function} props.confirmButtonPress - Callback function to handle the 'Confirm' button press.
+ * @returns {JSX.Element} - The StartSubmit component.
  */
 export default function StartSubmit({ isCheckBoxChecked, resetButtonPress, confirmButtonPress }) {
-  return (
-    <View style={styles.submitContainer}>
-        <Button text={'Reset'} onPress={resetButtonPress} color={'alert'}/>
-        {isCheckBoxChecked ? 
-            <Button text={'Confirm'} onPress={confirmButtonPress} color={'confirm'}/>
-         :
-            <Text style={styles.disableConfirmButton}>Confirm</Text>
-        }
-    </View>
-  )
+    
+    // Render the StartSubmit component
+    return (
+        <View style={styles.submitContainer}>
+            <Button text={'Reset'} onPress={resetButtonPress} color={'alert'}/>
+            {isCheckBoxChecked ? 
+                <Button text={'Confirm'} onPress={confirmButtonPress} color={'confirm'}/>
+            :
+                <Text style={styles.disableConfirmButton}>Confirm</Text>
+            }
+        </View>
+    )
 }
 
 const styles = StyleSheet.create({

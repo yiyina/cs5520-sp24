@@ -3,7 +3,17 @@ import React from 'react'
 import CheckBox from 'expo-checkbox';
 import colors from './Colors';
 
+/**
+ * Render the StartCheckBox component.
+ * 
+ * @param {object} props - The component's props.
+ * @param {boolean} props.isCheckBoxChecked - The checkbox state.
+ * @param {function} props.handleCheckBox - Callback function to handle the checkbox state.
+ * @returns {JSX.Element} - The StartCheckBox component.
+ */
 export default function StartCheckBox({ isCheckBoxChecked, handleCheckBox }) {
+
+  // Render the StartCheckBox component
   return (
     <View style={styles.checkboxContainer}>
         <CheckBox 
