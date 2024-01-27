@@ -6,13 +6,13 @@ import StartSubmit from '../components/StartSubmit';
 import colors from '../components/Colors';
 
 /**
- * Render the start screen component.
+ * Render the Start screen component.
  *
  * @param {object} props - The component's props.
  * @param {function} props.handleStartGame - Callback function to start the game.
  * @param {string} [props.initialUserName=""] - Initial user name (optional).
  * @param {string} [props.initialGuessNumber=""] - Initial guess number (optional).
- * @returns {JSX.Element} - The start screen component.
+ * @returns {JSX.Element} - The Start screen component.
  */
 export default function Start({ handleStartGame, initialUserName, initialGuessNumber }) {
   const [isCheckBoxChecked, setIsCheckBoxChecked] = useState(false);

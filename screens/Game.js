@@ -4,13 +4,26 @@ import React from 'react'
 import Button from '../components/Button';
 import colors from '../components/Colors';
 
+/**
+ * Render the Game screen component.
+ *
+ * Game component: Displays the game screen with modal
+ * @param {object} props - The component's props.
+ * @param {boolean} props.modalVisible - The modal visibility.
+ * @param {string} props.userName - The user name.
+ * @param {string} props.guessNumber - The user's guess number.
+ * @param {number} props.theNumber - The random number.
+ * @param {number} props.count - The number of attempts left.
+ * @param {function} props.setCount - Callback function to set the number of attempts left.
+ * @param {function} props.onTryAgain - Callback function to try again.
+ * @param {function} props.onGameEnd - Callback function to end the game.
+ * @returns JSX.Element - The Game screen component
+ */
 export default function Game({ modalVisible, userName, guessNumber, theNumber, count, setCount, onTryAgain, onGameEnd }) {
     const [win, setWin] = useState(false);
     const [message, setMessage] = useState("");
 
-    /*
-     * useEffect hook is called after the component is rendered
-     */
+    // Compare the user's guess with the actual number each time guessNumber, theNumber or count changes.
     useEffect(() => {
         // if guessNumber and userName are not empty, compare the numbers
         if (guessNumber && userName) { 
@@ -23,11 +36,8 @@ export default function Game({ modalVisible, userName, guessNumber, theNumber, c
         onGameEnd(win);
     }
 
-    /* 
-     * Function: compareNumbers
-     * Purpose: compare the user's guess number with the random number
-     * Parameters: none
-     * Return: none
+    /**
+     * Function to compare user's guess with the actual number
      */
     const compareNumbers = () => {
         console.log("Game compareNumbers called");
@@ -44,6 +54,7 @@ export default function Game({ modalVisible, userName, guessNumber, theNumber, c
         }
     }
 
+    // Render the modal with the game results
     return (
         <Modal  visible={modalVisible} transparent={true}>
             <View style={styles.container}>
