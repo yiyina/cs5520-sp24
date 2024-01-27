@@ -23,6 +23,9 @@ export default function Start({ handleStartGame, initialUserName, initialGuessNu
 
   /**
    * Handle the change of the checkbox state.
+   * 
+   * @param {none} none
+   * @returns {none}
    */
   const handleCheckBoxChange = () => {
     console.log("handleCheckBoxChange called")
@@ -34,6 +37,7 @@ export default function Start({ handleStartGame, initialUserName, initialGuessNu
    * Update the user name state based on input value.
    *
    * @param {string} name - The user name input value.
+   * @returns {none}
    */
   const getUserName = (name) => {
     setUserName(name);
@@ -43,6 +47,7 @@ export default function Start({ handleStartGame, initialUserName, initialGuessNu
    * Update the guess number state based on input value.
    *
    * @param {string} number - The guess number input value.
+   * @returns {none}
    */
   const getGuessNumber = (number) => {
     setGuessNumber(number);
@@ -51,6 +56,9 @@ export default function Start({ handleStartGame, initialUserName, initialGuessNu
   /**
    * Handle the 'Confirm' button press.
    * Validates user input and starts the game if input is valid.
+   * 
+   * @param {none} none
+   * @returns {none}
    */
   const handleConfirmButtonPress = () => {
     let isValid = true;
@@ -78,6 +86,9 @@ export default function Start({ handleStartGame, initialUserName, initialGuessNu
 
   /**
    * Handle the 'Reset' button press to clear user input and errors.
+   * 
+   * @param {none} none
+   * @returns {none}
    */
   const handleResetButtonPress = () => {
     setUserName("");
@@ -110,7 +121,7 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: colors.card,
     width: '70%',
-    height: '200',
+    height: 350,
     padding: 20,
     borderRadius: 10,
     shadowColor: colors.shadow,
