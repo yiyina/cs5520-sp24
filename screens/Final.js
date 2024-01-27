@@ -3,10 +3,20 @@ import React from 'react'
 import Button from '../components/Button'
 import colors from '../components/Colors';
 
+/**
+ * Render the Final screen component.
+ * 
+ * @param {object} props - The component's props.
+ * @param {boolean} props.gameResult - The game result.
+ * @param {string} props.guessNumber - The user's guess number.
+ * @param {function} props.startAgain - Callback function to start a new game.
+ * @returns {JSX.Element} - The Final screen component.
+ */
 export default function Final({ gameResult, guessNumber, startAgain }) {
     const imgUrl = `https://picsum.photos/id/${guessNumber}/100/100`;
     const sadFaceImg = require('../assets/sadface.png');
 
+    // Render the Final screen component
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Game is Over</Text>

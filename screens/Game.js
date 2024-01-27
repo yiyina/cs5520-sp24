@@ -7,7 +7,6 @@ import colors from '../components/Colors';
 /**
  * Render the Game screen component.
  *
- * Game component: Displays the game screen with modal
  * @param {object} props - The component's props.
  * @param {boolean} props.modalVisible - The modal visibility.
  * @param {string} props.userName - The user name.
