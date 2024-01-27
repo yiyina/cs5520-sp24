@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
         shadowRadius: 6,
         shadowOpacity: 0.5,
         elevation: 10,
-        marginTop: 200, 
+        marginTop: '50%', 
         alignItems: 'center', 
         justifyContent: 'center',
     },
