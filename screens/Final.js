@@ -1,21 +1,14 @@
 import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
-import { LinearGradient } from 'expo-linear-gradient';
 import Button from '../components/Button'
 import colors from '../components/Colors';
 
 export default function Final({ gameResult, guessNumber, startAgain }) {
-    console.log("Current guess number:", guessNumber);
-    
     const imgUrl = `https://picsum.photos/id/${guessNumber}/100/100`;
     const sadFaceImg = require('../assets/sadface.png');
 
     return (
-        <LinearGradient 
-            style={styles.container}
-            colors={['#D8BFD8', '#A670C0']}
-            start={[0.5, 0]}
-            end={[0.5, 1]}>
+        <View style={styles.container}>
             <Text style={styles.title}>Game is Over</Text>
             <View style={styles.card}>
                 <Text style={styles.text}>Here's your picture</Text>
@@ -26,14 +19,13 @@ export default function Final({ gameResult, guessNumber, startAgain }) {
                 }
                 <Button text={'Start Again'} onPress={startAgain} color={'confirm'} />
             </View>
-        </LinearGradient>
+        </View>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: colors.background,
         paddingTop: 60,
         width: '100%',
         alignItems: 'center',

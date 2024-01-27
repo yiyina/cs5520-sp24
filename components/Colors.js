@@ -1,5 +1,4 @@
 const colors = {
-    background: '#D8BFD8',
     card: 'darkgrey',
     shadow: 'black',
     text: '#531faa',

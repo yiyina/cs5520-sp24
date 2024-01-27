@@ -1,11 +1,10 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Modal } from 'react-native'
 import { useState, useEffect } from 'react';
 import React from 'react'
-import { LinearGradient } from 'expo-linear-gradient';
 import Button from '../components/Button';
 import colors from '../components/Colors';
 
-export default function Game({ userName, guessNumber, theNumber, count, setCount, closeModal, onGameEnd }) {
+export default function Game({ modalVisible, userName, guessNumber, theNumber, count, setCount, onTryAgain, onGameEnd }) {
     const [win, setWin] = useState(false);
     const [message, setMessage] = useState("");
 
@@ -19,7 +18,7 @@ export default function Game({ userName, guessNumber, theNumber, count, setCount
         }
     }, [guessNumber, theNumber, count]);
 
-    function handleGameOver() {
+    const handleGameOver = () => {
         console.log("Game handleGameOver called");
         onGameEnd(win);
     }
@@ -30,7 +29,7 @@ export default function Game({ userName, guessNumber, theNumber, count, setCount
      * Parameters: none
      * Return: none
      */
-    function compareNumbers () {
+    const compareNumbers = () => {
         console.log("Game compareNumbers called");
         console.log("User name: " + userName + ", Guess number: " + guessNumber + " The number is: " + theNumber + " Count: " + count);
         if (parseInt(guessNumber) === theNumber) {
@@ -45,50 +44,38 @@ export default function Game({ userName, guessNumber, theNumber, count, setCount
         }
     }
 
-    /*
-     * Function: handleTryAgain
-     * Purpose: handle the 'Let Me Guess Again' button press 
-     * Parameters: none
-     * Return: none
-     */
-    function handleTryAgain() {
-        closeModal();
-    }
-
     return (
-        <LinearGradient 
-            style={styles.container}
-            colors={['#D8BFD8', '#A670C0']}
-            start={[0.5, 0]}
-            end={[0.5, 1]}>
-            <View style={styles.card}>
-                <Text style={styles.resultsText}>
-                    {message}
-                </Text>
-                {win ? 
-                    <Button text={'Thank you!'} onPress={handleGameOver} color={'confirm'}/>
-                : 
-                <>
-                    <Button text="I am done" onPress={handleGameOver} color={'alert'} /> 
-                    { count > 0 ? 
-                        <Button text="Let Me Guess Again" onPress={handleTryAgain} color={'confirm'} />
-                    :
-                        <Text style={{color: colors.disableConfirm}}>Let Me Guess Again</Text>}
-                    
-                </>
-                }
+        <Modal  visible={modalVisible} transparent={true}>
+            <View style={styles.container}>
+                <View style={styles.card}>
+                    <Text style={styles.resultsText}>
+                        {message}
+                    </Text>
+                    {win ? 
+                        <Button text={'Thank you!'} onPress={handleGameOver} color={'confirm'}/>
+                    : 
+                    <>
+                        <Button text="I am done" onPress={handleGameOver} color={'alert'} /> 
+                        { count > 0 ? 
+                            <Button text="Let Me Guess Again" onPress={onTryAgain} color={'confirm'} />
+                        :
+                            <Text style={{color: colors.disableConfirm}}>Let Me Guess Again</Text>}
+                        
+                    </>
+                    }
+                </View>
             </View>
-        </LinearGradient>
+        </Modal>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: colors.background,
         paddingTop: 60,
         width: '100%',
         alignItems: 'center',
+        backgroundColor: 'rgba(0, 0, 0, 0)',
     },
     card: {
         width: '80%',
