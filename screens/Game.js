@@ -69,7 +69,7 @@ export default function Game({ modalVisible, userName, guessNumber, theNumber, c
                         { count > 0 ? 
                             <Button text="Let Me Guess Again" onPress={onTryAgain} color={'confirm'} />
                         :
-                            <Text style={{color: colors.disableConfirm}}>Let Me Guess Again</Text>}
+                            <Text style={styles.disableConfirm}>Let Me Guess Again</Text>}
                         
                     </>
                     }
@@ -107,17 +107,8 @@ const styles = StyleSheet.create({
         fontSize: 20,
         marginBottom: 10,
     },
-    done: {
-        color: colors.alert,
-        marginBottom: 10,
-        textAlign: 'center',
-    },
-    playAgain: {
-        color: colors.confirm,
-        textAlign: 'center',
-        marginTop: 10,
-    },
-    thanks: {
-        color: colors.confirm,
+    disableConfirm: {
+        color: colors.disableConfirm,
+        fontSize: 18,
     }
 })

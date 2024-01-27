@@ -1,15 +1,15 @@
 import { StyleSheet } from 'react-native'
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import Start from './screens/Start';
 import Game from './screens/Game';
 import Final from './screens/Final';
 
-/* 
- * Function: App
- * Purpose: render the app
- * Parameters: none
- * Return: the app
+/**
+ * Render the app.
+ * 
+ * @param {none} none
+ * @returns {JSX.Element} - The app component.
  */
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState("start");
@@ -20,15 +20,11 @@ export default function App() {
   const [gameResult, setGameResult] = useState("");
   const [isGameModalVisible, setIsGameModalVisible] = useState(false);
 
-  useEffect(() => {
-  
-  }, [currentScreen]);
-
-  /*
-   * Function: getRandomNumber 
-   * Purpose: get a random number between 1020 and 1029
-   * Parameters: none
-   * Return: a random number between 1020 and 1029
+  /**
+   * Generate a random number between 1020 and 1029
+   * 
+   * @param {none} none
+   * @returns {number} - The random number
    */
   const getRandomNumber = () => {
     console.log("getRandomNumber called")
@@ -38,11 +34,11 @@ export default function App() {
     return randomNumber;
   }
 
-  /*
-   * Function: startNewGame
-   * Purpose: start a new game
-   * Parameters: none
-   * Return: none
+  /**
+   * Start a new game
+   * 
+   * @param {none} none
+   * @returns {none}
    */
   const startNewGame = () => {
     const randomNum = getRandomNumber();
@@ -51,11 +47,12 @@ export default function App() {
     console.log(`New game started. The random number is ${randomNum}`);
   };
 
-  /*
-   * Function: handleStartGame
-   * Purpose: handle the 'Start Game' button press
-   * Parameters: none
-   * Return: none
+  /**
+   * Handle the 'Start Game' button press
+   * 
+   * @param {string} name - The user name
+   * @param {string} number - The guess number
+   * @returns {none}
    */
   const handleStartGame = (name, number) => {
     setUserName(name);
@@ -70,22 +67,22 @@ export default function App() {
     setIsGameModalVisible(true);
   };
 
-  /*
-   * Function: handleTryAgain
-   * Purpose: handle the 'Try Again' button press
-   * Parameters: none
-   * Return: none
+  /**
+   * Handle the 'Try Again' button press
+   * 
+   * @param {none} none
+   * @returns {none}
    */
   const handleTryAgain = () => {
     setIsGameModalVisible(false);
     setCurrentScreen("start");
   }
 
-  /*
-   * Function: handleGameEnd
-   * Purpose: handle the end of the game
-   * Parameters: none
-   * Return: none
+  /**
+   * Handle the game end
+   * 
+   * @param {string} result - The game result
+   * @returns {none}
    */
   const handleGameEnd = (result) => {
     console.log("handleGameEnd called")
@@ -109,6 +106,7 @@ export default function App() {
     setCurrentScreen("start");
   };
 
+  // Render the app
   return (
     <LinearGradient style={styles.container} colors={['#D8BFD8', '#A670C0']} start={[0.5, 0]} end={[0.5, 1]}>
       {currentScreen === "start" && (
