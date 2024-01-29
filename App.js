@@ -118,17 +118,17 @@ export default function App() {
         />
       )}
       {currentScreen === "game" && (
-      <Game
-        userName={userName}
-        guessNumber={guessNumber}
-        theNumber={randomNumber}
-        count={count}
-        setCount={setCount}
-        modalVisible={isGameModalVisible}
-        closeModal={() => setIsGameModalVisible(false)}
-        onTryAgain={handleTryAgain}
-        onGameEnd={handleGameEnd}
-      />
+        <Game
+          userName={userName}
+          guessNumber={guessNumber}
+          theNumber={randomNumber}
+          count={count}
+          setCount={setCount}
+          modalVisible={isGameModalVisible}
+          closeModal={() => setIsGameModalVisible(false)}
+          onTryAgain={handleTryAgain}
+          onGameEnd={handleGameEnd}
+        />
       )}
       {currentScreen === "final" && (
         <Final
