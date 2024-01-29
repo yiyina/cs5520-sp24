@@ -94,6 +94,7 @@ export default function Start({ handleStartGame, initialUserName, initialGuessNu
     setGuessNumber("");
     setErrorName("");
     setErrorNumber("");
+    setIsCheckBoxChecked(false);
   }
 
   // Render the start screen component
