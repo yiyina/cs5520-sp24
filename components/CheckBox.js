@@ -16,10 +16,10 @@ export default function StartCheckBox({ isCheckBoxChecked, handleCheckBox }) {
   // Render the StartCheckBox component
   return (
     <View style={styles.checkboxContainer}>
-        <CheckBox 
-              style={styles.checkbox}
-              value={isCheckBoxChecked}
-              onValueChange={handleCheckBox}/>
+      <CheckBox 
+        style={styles.checkbox}
+        value={isCheckBoxChecked}
+        onValueChange={handleCheckBox}/>
       <Text style={styles.text}>I am not a robot</Text>
     </View>
   )
