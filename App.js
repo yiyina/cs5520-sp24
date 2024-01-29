@@ -4,7 +4,6 @@ import { LinearGradient } from 'expo-linear-gradient';
 import Start from './screens/Start';
 import Game from './screens/Game';
 import Final from './screens/Final';
-import colors from './components/Colors';
 
 /**
  * Render the app.
@@ -109,7 +108,7 @@ export default function App() {
 
   // Render the app
   return (
-    <LinearGradient style={styles.container} colors={[colors.lightPurple, colors.darkPurple]} start={[0.5, 0]} end={[0.5, 1]}>
+    <LinearGradient style={styles.container} colors={['#D8BFD8', '#A670C0']} start={[0.5, 0]} end={[0.5, 1]}>
       {currentScreen === "start" && (
         <Start
           handleStartGame={handleStartGame}

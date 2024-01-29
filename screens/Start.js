@@ -30,6 +30,7 @@ export default function Start({ handleStartGame, initialUserName, initialGuessNu
   const handleCheckBoxChange = () => {
     console.log("handleCheckBoxChange called")
     setIsCheckBoxChecked(!isCheckBoxChecked);
+    console.log(isCheckBoxChecked)
   }
 
   /**
@@ -94,7 +95,6 @@ export default function Start({ handleStartGame, initialUserName, initialGuessNu
     setGuessNumber("");
     setErrorName("");
     setErrorNumber("");
-    setIsCheckBoxChecked(false);
   }
 
   // Render the start screen component
